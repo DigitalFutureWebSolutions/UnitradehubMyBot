@@ -36,7 +36,7 @@ function Login({ setLoggedIn }) {
         })
         .catch((err) => {
           console.error("API Error:", err);
-          // Handle specific errors, such as invalid credentials
+          // Handle specific errors, such as invalid credentials by
           if (err.response && err.response.status === 400) {
             alert("Invalid email or password. Please try again.");
           } else {
