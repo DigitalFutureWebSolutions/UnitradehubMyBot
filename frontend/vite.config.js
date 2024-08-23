@@ -5,7 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   server: {
     proxy: {
-      api: "https://unitradehub-1.onrender.com/",
+      api: "https://unitrade-hub.vercel.app/",
     },
   },
   plugins: [react()],
