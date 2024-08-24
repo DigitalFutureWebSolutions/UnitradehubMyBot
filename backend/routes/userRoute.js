@@ -30,8 +30,7 @@ const {
 } = require("../middleware/auth");
 const router = express.Router();
 
-// router.route('/').get(isAuthenticatedUser,checkAdminLoginOrDashboard)
-router.route("/").get(isAuthenticatedUser, dashboard);
+router.route("/").get(isAuthenticatedUser, checkAdminLoginOrDashboard);
 router.route("/dashboard").get(isAuthenticatedUser, dashboard);
 router.route("/register").post(registerUser);
 
