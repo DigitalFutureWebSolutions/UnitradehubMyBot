@@ -5,8 +5,9 @@
   "main": "backend/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm start",
+    "client": "cd frontend && npm start"
   },
   "author": "",
   "license": "ISC",
@@ -35,5 +36,8 @@
     "redis": "^4.7.0",
     "update": "^0.7.4",
     "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
