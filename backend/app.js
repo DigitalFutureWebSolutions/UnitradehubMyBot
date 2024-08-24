@@ -9,7 +9,12 @@ const flash = require("connect-flash");
 const expressLayouts = require("express-ejs-layouts");
 const errorMiddleware = require("./middleware/error");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://unitradehub-backend.onrender.com/",
+    credentials: true,
+  })
+);
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 app.set("layout", "layouts/layout");
