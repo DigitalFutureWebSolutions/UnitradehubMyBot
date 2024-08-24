@@ -5,17 +5,17 @@ import rupees from "../Img/hero.png";
 // import Wallet from "./Wallet";
 
 function Home() {
-  const [firstName, setFirstName] = useState("");
+  // const [firstName, setFirstName] = useState("");
 
-  useEffect(() => {
-    // Initialize Telegram WebApp
-    const tg = window.Telegram.WebApp;
+  // useEffect(() => {
+  //   // Initialize Telegram WebApp
+  //   const tg = window.Telegram.WebApp;
 
-    // Extract user information
-    const firstName = tg.initDataUnsafe?.user?.first_name;
+  //   // Extract user information
+  //   const firstName = tg.initDataUnsafe?.user?.first_name;
 
-    setFirstName(firstName);
-  }, []);
+  //   setFirstName(firstName);
+  // }, []);
 
   return (
     <div className="bg-black flex justify-center">
@@ -36,7 +36,8 @@ function Home() {
                   </h1>
                 </div>
                 <div>
-                  <h1>Welcome {firstName} </h1>
+                  {/* <h1>Welcome {firstName} </h1> */}
+                  <h1>Welcome </h1>
                 </div>
 
                 <div className="tasks">
