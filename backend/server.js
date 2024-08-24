@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config({path: 'backend/config/config.env'});
 const connectDatabase = require('./config/database');
 const mysqlPool = require('./config/mysql_database');
+const PORT = process.env.PORT || 4000;
 
 //handling uncaught exceptions
 process.on('uncaughtException', (err) =>{
@@ -26,10 +27,10 @@ mysqlPool.query('SELECT 1')
         console.error('Error establishing MySQL connection:', err);
     });
 
-const server = app.listen(process.env.PORT, () =>{
-    console.log('server is working on port '+process.env.PORT);
-})
- 
+const server = app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+
 // unhandled promise rejection
 process.on('unhandledRejection', (err) => {
     console.error('Error: ' + err.message);
