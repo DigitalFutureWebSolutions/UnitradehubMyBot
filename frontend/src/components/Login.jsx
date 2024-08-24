@@ -25,7 +25,7 @@ function Login({ setLoggedIn }) {
 
     if (Object.keys(validationErrors).length === 0) {
       axios
-        .post("https://unitrade-hub.vercel.app/api/v1/api-login", values)
+        .post("/api/v1/api-login", values)
         .then((res) => {
           if (res.data.success === true) {
             setLoggedIn(true); // Set the loggedIn state to true
