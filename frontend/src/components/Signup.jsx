@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Validation from "./LoginValidation";
 
+const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+
 function Signup() {
   const [values, setValues] = useState({
     name: "",
