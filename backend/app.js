@@ -8,8 +8,6 @@ const cors = require("cors");
 const flash = require("connect-flash");
 const expressLayouts = require("express-ejs-layouts");
 const errorMiddleware = require("./middleware/error");
-const RedisStore = require("connect-redis")(session);
-const redisClient = require("redis").createClient();
 
 app.use(
   cors({
@@ -37,15 +35,6 @@ app.use(
   })
 );
 app.use(flash());
-app.use(
-  session({
-    store: new RedisStore({ client: redisClient }),
-    secret: "your-secret-key",
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false }, // Set secure: true in production with HTTPS
-  })
-);
 
 const blogs = require("./routes/blogRoute");
 const pages = require("./routes/pageRoute");
