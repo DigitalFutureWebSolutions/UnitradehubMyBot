@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Validation from "./LoginValidation";
 
-// const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
 
 function Signup() {
   const [values, setValues] = useState({
@@ -34,7 +34,7 @@ function Signup() {
     // Temporarily bypass validation to test submission
     // if (Object.keys(validationErrors).length === 0) {
     axios
-      .post("https://unitradehub.onrender.com/api/v1/api-register", values)
+      .post(`${backendUrl}/api/v1/api-register`, values)
       .then((res) => {
         console.log("Server Response:", res);
         navigate("/"); // Redirect to the login page upon successful signup

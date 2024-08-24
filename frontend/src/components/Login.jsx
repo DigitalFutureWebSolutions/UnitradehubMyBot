@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import Validation from "./LoginValidation";
 
-// const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
 
 function Login({ setLoggedIn }) {
   const [values, setValues] = useState({
@@ -27,7 +27,7 @@ function Login({ setLoggedIn }) {
 
     if (Object.keys(validationErrors).length === 0) {
       axios
-        .post("https://unitradehub.onrender.com/api/v1/api-login", values)
+        .post(`${backendUrl}/api/v1/api-login`, values)
         .then((res) => {
           if (res.data.success === true) {
             setLoggedIn(true); // Set the loggedIn state to true
