@@ -1,6 +1,7 @@
 const app = require("./app");
 const dotenv = require("dotenv");
-dotenv.config({ path: "backend/config/config.env" });
+dotenv.config({ path: "./config/config.env" });
+console.log("PORT:", process.env.PORT);
 const connectDatabase = require("./config/database");
 const mysqlPool = require("./config/mysql_database");
 
