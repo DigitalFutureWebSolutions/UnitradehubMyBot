@@ -11,7 +11,12 @@ const errorMiddleware = require("./middleware/error");
 const RedisStore = require("connect-redis")(session);
 const redisClient = require("redis").createClient();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://unitradehub.onrender.com/",
+    credentials: true,
+  })
+);
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 app.set("layout", "layouts/layout");
