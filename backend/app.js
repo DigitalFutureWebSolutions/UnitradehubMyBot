@@ -11,7 +11,7 @@ const errorMiddleware = require("./middleware/error");
 
 app.use(
   cors({
-    origin: "https://unitradehub-v1-1.onrender.com/",
+    origin: "https://unitradehubmybot.onrender.com/",
     credentials: true,
   })
 );
