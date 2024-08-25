@@ -11,7 +11,7 @@ const errorMiddleware = require("./middleware/error");
 
 app.use(
   cors({
-    origin: "https://unitradehubmybot.onrender.com/",
+    origin: "https://unitradehubmybot.netlify.app/",
     credentials: true,
   })
 );
