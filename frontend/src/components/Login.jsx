@@ -24,7 +24,8 @@ function Login({ setLoggedIn }) {
     e.preventDefault();
     const validationErrors = Validation(values);
     setErrors(validationErrors);
-
+    console.log(`${process.env.REACT_APP_BACKEND_URL}/api/v1/api-login`);
+    console.log(values);
     if (Object.keys(validationErrors).length === 0) {
       axios
         .post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/api-login`, values)
