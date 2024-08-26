@@ -1,3 +1,4 @@
+const path = require("path"); // Path module import karein
 const app = require("./app");
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
@@ -11,13 +12,7 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-//console.log(testing);
-
-//connectDatabase();
-/*mysqlPool.query('select 1').then((error)=>{
-    console.log('mysql connection established');
-})*/
-
+// Connect MySQL database
 mysqlPool
   .query("SELECT 1")
   .then(([rows, fields]) => {
@@ -27,8 +22,16 @@ mysqlPool
     console.error("Error establishing MySQL connection:", err);
   });
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+// Serve React app for any unknown routes
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../frontend/dist/index.html"));
+});
+
 const server = app.listen(process.env.PORT, () => {
-  console.log("server is working on port " + process.env.PORT);
+  console.log("Server is working on port " + process.env.PORT);
 });
 
 // unhandled promise rejection
