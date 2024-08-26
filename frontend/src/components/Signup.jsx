@@ -32,7 +32,7 @@ function Signup() {
     // Temporarily bypass validation to test submission
     // if (Object.keys(validationErrors).length === 0) {
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/api-register`, values)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/api-register`, values)
       .then((res) => {
         console.log("Server Response:", res);
         navigate("/"); // Redirect to the login page upon successful signup

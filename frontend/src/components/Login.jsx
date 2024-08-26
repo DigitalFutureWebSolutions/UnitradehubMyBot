@@ -27,7 +27,7 @@ function Login({ setLoggedIn }) {
 
     if (Object.keys(validationErrors).length === 0) {
       axios
-        .post(`${process.env.REACT_APP_BACKEND_URL}/api-login`, values)
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/api-login`, values)
         .then((res) => {
           if (res.data.success === true) {
             setLoggedIn(true); // Set the loggedIn state to true
