@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Validation from "./LoginValidation";
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 function Signup() {
   const [values, setValues] = useState({
     name: "",
@@ -32,7 +34,7 @@ function Signup() {
     // Temporarily bypass validation to test submission
     // if (Object.keys(validationErrors).length === 0) {
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/api-register`, values)
+      .post(`${backendUrl}/api/v1/api-register`, values)
       .then((res) => {
         console.log("Server Response:", res);
         navigate("/"); // Redirect to the login page upon successful signup
